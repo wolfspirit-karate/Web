@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club de Karate Do Wolf Spirit - Quimbaya</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR CORPORATIVO --- */
+        :root {
+            --bg-principal: #0d0d0d; 
+            --bg-secundario: #1a1a1a; 
+            --color-rojo: #8b0000; 
+            --color-rojo-claro: #cc0000; 
+            --color-amarillo: #d4af37; 
+            --color-texto: #e0e0e0;
+            --color-blanco: #ffffff;
+            --fuente-titulo: 'Oswald', sans-serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        /* --- ESTILOS GLOBALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--bg-principal);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            color: var(--color-blanco);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        header {
+            background-color: #000000;
+            border-bottom: 3px solid var(--color-rojo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem; 
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px; 
+            width: auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-blanco);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-amarillo);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--bg-secundario);
+            padding: 4rem 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid var(--color-amarillo);
+        }
+
+        .logo-principal {
+            max-width: 280px; 
+            margin-bottom: 2rem;
+            filter: drop-shadow(0px 4px 10px rgba(139, 0, 0, 0.4));
+        }
+
+        .hero-info h1 {
+            font-size: 2.5rem;
+            color: var(--color-blanco);
+        }
+
+        .hero-info p {
+            color: var(--color-amarillo);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-contacto {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-amarillo);
+            color: #000;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-contacto:hover {
+            background-color: var(--color-blanco);
+            transform: translateY(-3px);
+        }
+
+        /* --- CONTENEDOR GENERAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            scroll-margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--color-rojo-claro);
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            padding-bottom: 5px;
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- GALERÍA / BANNERS --- */
+        .galeria-panel {
+            background-color: var(--bg-secundario);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .galeria-banner {
+            border-radius: 6px;
+            overflow: hidden;
+            border: 2px solid #222;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s;
+            background-color: #000;
+        }
+
+        .galeria-banner:hover {
+            transform: scale(1.02);
+            border-color: var(--color-amarillo);
+        }
+
+        .galeria-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- CONTACTO --- */
+        .contacto-panel {
+            background-color: var(--bg-secundario);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid var(--color-rojo);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .contacto-item .icon {
+            color: var(--color-amarillo);
+            font-size: 1.8rem;
+        }
+
+        .contacto-item h4 {
+            color: var(--color-blanco);
+            margin-bottom: 3px;
+        }
+
+        .btn-wsap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366; 
+            color: white;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-wsap:hover {
+            background-color: #1ebe57;
+        }
+
+        /* --- MODAL --- */
+        #modalGaleria {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modalImg {
+            max-width: 95%;
+            max-height: 85%;
+            border: 2px solid var(--color-amarillo);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid #222;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MÓVIL --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; 
+            }
+
+            .nav-menu {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                border-bottom: 2px solid var(--color-rojo);
+                padding: 15px 0;
+                gap: 15px;
+                text-align: center;
+                box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            }
+
+            .nav-menu.active {
+                display: flex; 
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1.1rem; 
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .logo-principal {
+                max-width: 180px;
+            }
+
+            .hero-info h1 {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .galeria-panel {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="1000051057.jpg" alt="Logo Wolf Spirit Nav" class="logo-img">
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span class="material-icons">menu</span>
+            </button>
+
+            <nav>
+                <ul class="nav-menu" id="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#galeria">Nuestra Acción</a></li>
+                    <li><a href="#contacto">Inscripciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <img src="1000051057.jpg" alt="Logo Wolf Spirit Principal" class="logo-principal">
+        <div class="hero-info">
+            <h1>Club de Karate Do Wolf Spirit</h1>
+            <p>Disciplina • Respeto • Defensa Personal • Quimbaya</p>
+            <a href="https://wa.me/573203887361?text=Hola,%20quisiera%20inscribirme%20en%20Karate-Do%20Wolf%20Spirit" class="btn-contacto" target="_blank">
+                <span class="material-icons">waving_hand</span> Inscríbete Ahora
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section id="nosotros">
+            <h2>Sobre Nuestro Club</h2>
+            <div class="about-text">
+                <p>Bienvenido al <strong>Club de Karate Do Wolf Spirit</strong>, un espacio dedicado a la formación integral a través del Karate tradicional Shotokan y técnicas modernas de defensa personal.</p>
+                <p>Ubicados en el municipio de Quimbaya, Quindío, cultivamos valores como la autodisciplina, la perseverance, el respeto mutuo y la autoconfianza. Nuestro lema corporativo, "Born Leader" (Nacido Líder), guía a cada estudiante a encontrar su fuerza interior.</p>
+                <p>Contamos con instructores capacitados para guiar los procesos tanto de niños como de jóvenes y adultos, adaptando el entrenamiento a todos los niveles.</p>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2>Nuestra Acción y Equipo</h2>
+            <p style="margin-bottom: 2rem; color: #aaa;">Conoce a nuestros integrantes en los banners oficiales del club. Haz clic en cualquiera para ampliarlo.</p>
+            <div class="galeria-panel">
+                <div class="galeria-banner" onclick="openModal('1000051061.jpg')">
+                    <img src="1000051061.jpg" alt="Equipo Wolf Spirit Banner Rojo">
+                </div>
+                <div class="galeria-banner" onclick="openModal('1000051062.jpg')">
+                    <img src="1000051062.jpg" alt="Equipo Wolf Spirit Banner Negro">
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto e Inscripciones</h2>
+            <p style="margin-bottom: 2rem; color: #aaa;">Resuelve tus dudas o asegura tu cupo directamente vía WhatsApp.</p>
+            <div class="contacto-panel">
+                <div class="contacto-item">
+                    <span class="material-icons icon">person</span>
+                    <div>
+                        <h4>Coordinación</h4>
+                        <p>Sensei @DAMIRBECERRA_KARATE</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <span class="material-icons icon">location_on</span>
+                    <div>
+                        <h4>Ubicación Única</h4>
+                        <p>Carrera 6 #19-27, Quimbaya, Quindío</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/573203887361?text=Hola,%20quisiera%20inscribirme%20en%20Karate-Do%20Wolf%20Spirit" class="btn-wsap" target="_blank">
+                    <span class="material-icons">chat</span> Escríbenos por WhatsApp: +57 320 388 7361
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Club de Karate Do Wolf Spirit Quimbaya. Todos los derechos reservados. "Born Leader"</p>
+    </footer>
+
+    <div id="modalGaleria" onclick="closeModal()">
+        <img id="modalImg" src="">
+    </div>
+
+    <script>
+        // Menú Desplegable Móvil
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Ver banner grande al hacer click
+        function openModal(imgSrc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalGaleria').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalGaleria').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

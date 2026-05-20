@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wolf Spirit - Dojo de Artes Marciales</title>
-    <!-- Iconos de Google Font -->
+    <title>Club de Karate Do Wolf Spirit - Quimbaya</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- VARIABLES DE COLOR Y ESTILOS GLOBALES --- */
+        /* --- VARIABLES DE COLOR CORPORATIVO --- */
         :root {
-            --bg-principal: #121212;
-            --bg-secundario: #1a1a1a;
-            --color-oro: #d4af37;
+            --bg-principal: #0d0d0d; 
+            --bg-secundario: #1a1a1a; 
+            --color-rojo: #8b0000; 
+            --color-rojo-claro: #cc0000; 
+            --color-amarillo: #d4af37; 
             --color-texto: #e0e0e0;
             --color-blanco: #ffffff;
-            --fuente: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --fuente-titulo: 'Oswald', sans-serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+
+            /* Colores del folleto de horarios */
+            --horario-blanco: #ffffff;
+            --horario-texto-oscuro: #000000;
+            --horario-verde: #00c853;
+            --horario-amarillo-soft: #fff176;
+            --horario-naranja: #ff6d00;
+            --horario-azul: #00b0ff;
         }
 
+        /* --- ESTILOS GLOBALES --- */
         * {
             margin: 0;
             padding: 0;
@@ -24,16 +37,23 @@
         }
 
         body {
-            font-family: var(--fuente);
+            font-family: var(--fuente-cuerpo);
             background-color: var(--bg-principal);
             color: var(--color-texto);
             line-height: 1.6;
         }
 
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            color: var(--color-blanco);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         /* --- BARRA DE NAVEGACIÓN --- */
         header {
-            background-color: var(--bg-secundario);
-            border-bottom: 2px solid var(--color-oro);
+            background-color: #000000;
+            border-bottom: 3px solid var(--color-rojo);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -45,29 +65,27 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.5rem 1.5rem; 
+            position: relative;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .logo-img {
-            height: 50px; /* Ajustable según tu logo */
+            height: 50px; 
             width: auto;
         }
 
-        .logo-text {
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
             color: var(--color-blanco);
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            color: var(--color-oro);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         .nav-menu {
@@ -81,70 +99,64 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 0.9rem;
         }
 
         .nav-menu a:hover {
-            color: var(--color-oro);
+            color: var(--color-amarillo);
         }
 
-        /* --- SECCIÓN HERO / BANNER --- */
+        /* --- HERO SECTION --- */
         .hero {
-            position: relative;
-            background-color: #000;
-            height: 60vh;
+            background-color: var(--bg-secundario);
+            padding: 4rem 2rem;
+            text-align: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            overflow: hidden;
+            border-bottom: 3px solid var(--color-amarillo);
         }
 
-        .banner-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.4;
+        .logo-principal {
+            max-width: 280px; 
+            margin-bottom: 2rem;
+            filter: drop-shadow(0px 4px 10px rgba(139, 0, 0, 0.4));
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
+        .hero-info h1 {
+            font-size: 2.5rem;
             color: var(--color-blanco);
-            margin-bottom: 10px;
-            text-transform: uppercase;
         }
 
-        .hero-content p {
+        .hero-info p {
+            color: var(--color-amarillo);
+            font-weight: bold;
             font-size: 1.2rem;
-            color: var(--color-oro);
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
 
-        .btn-cta {
-            background-color: var(--color-oro);
+        .btn-contacto {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-amarillo);
             color: #000;
             padding: 12px 24px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 4px;
-            transition: background 0.3s;
+            border-radius: 6px;
+            transition: background 0.3s, transform 0.2s;
         }
 
-        .btn-cta:hover {
+        .btn-contacto:hover {
             background-color: var(--color-blanco);
+            transform: translateY(-3px);
         }
 
         /* --- CONTENEDOR GENERAL --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
@@ -156,358 +168,454 @@
 
         h2 {
             font-size: 2rem;
-            color: var(--color-blanco);
-            border-left: 4px solid var(--color-oro);
-            padding-left: 15px;
+            border-bottom: 2px solid var(--color-rojo-claro);
+            display: inline-block;
             margin-bottom: 1.5rem;
+            padding-bottom: 5px;
         }
 
-        /* --- DESCRIPCIÓN DEL DOJO --- */
-        .about-grid {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
+        /* --- SOBRE NOSOTROS --- */
         .about-text p {
             margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
-        /* --- HORARIOS (TABLA) --- */
+        /* --- TABLA DE HORARIOS ADAPTATIVA --- */
         .table-responsive {
+            width: 100%;
             overflow-x: auto;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
         }
 
-        table {
+        .horarios-tabla {
             width: 100%;
             border-collapse: collapse;
-            background-color: var(--bg-secundario);
-            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            min-width: 800px; 
         }
 
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #333;
+        .horarios-tabla th, .horarios-tabla td {
+            border: 1px solid #333;
+            padding: 12px 10px;
+            vertical-align: middle;
         }
 
-        th {
+        .horarios-tabla th {
+            font-family: var(--fuente-titulo);
+            font-size: 1.1rem;
+            color: var(--color-blanco);
+            background-color: var(--color-rojo-claro);
+            text-transform: uppercase;
+        }
+
+        .horarios-tabla td.col-hora {
+            font-family: var(--fuente-titulo);
             background-color: #222;
-            color: var(--color-oro);
+            color: var(--color-blanco);
+            font-size: 1rem;
+            font-weight: bold;
+            width: 140px;
         }
 
-        tr:hover {
-            background-color: #252525;
+        .cell-vacia {
+            background-color: var(--bg-secundario);
         }
 
-        /* --- GALERÍA DE IMÁGENES --- */
-        .galeria-grid {
+        .cell-blanca {
+            background-color: var(--horario-blanco);
+            color: var(--horario-texto-oscuro);
+            font-weight: bold;
+        }
+
+        .cell-verde {
+            background-color: var(--horario-verde);
+            color: var(--horario-texto-oscuro);
+            font-weight: bold;
+        }
+
+        .cell-amarilla {
+            background-color: var(--horario-amarillo-soft);
+            color: var(--horario-texto-oscuro);
+            font-weight: bold;
+        }
+
+        .cell-naranja {
+            background-color: var(--horario-naranja);
+            color: var(--color-blanco);
+            font-weight: bold;
+        }
+
+        .cell-azul {
+            background-color: var(--horario-azul);
+            color: var(--horario-texto-oscuro);
+            font-weight: bold;
+        }
+
+        .info-nota {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* --- GALERÍA / BANNERS --- */
+        .galeria-panel {
+            background-color: var(--bg-secundario);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
         }
 
-        .galeria-item {
-            background-color: var(--bg-secundario);
-            border: 1px solid #333;
+        .galeria-banner {
             border-radius: 6px;
             overflow: hidden;
-            transition: transform 0.3s;
+            border: 2px solid #222;
+            cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s;
+            background-color: #000;
         }
 
-        .galeria-item:hover {
-            transform: scale(1.03);
+        .galeria-banner:hover {
+            transform: scale(1.02);
+            border-color: var(--color-amarillo);
         }
 
-        .galeria-item img {
+        .galeria-banner img {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: auto;
             display: block;
         }
 
-        .galeria-caption {
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--color-blanco);
-        }
-
         /* --- CONTACTO --- */
-        .contacto-grid {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contacto-info {
-            flex: 1;
-            min-width: 300px;
+        .contacto-panel {
+            background-color: var(--bg-secundario);
+            padding: 30px;
+            border-radius: 8px;
+            border: 2px solid var(--color-rojo);
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        .info-card {
-            background-color: var(--bg-secundario);
-            padding: 20px;
-            border-radius: 6px;
+        .contacto-item {
             display: flex;
             align-items: center;
             gap: 15px;
-        }
-
-        .info-card .icon {
-            color: var(--color-oro);
-            font-size: 2rem;
-        }
-
-        .info-card h4 {
-            color: var(--color-blanco);
-            margin-bottom: 5px;
-        }
-
-        .contacto-form {
-            flex: 1;
-            min-width: 300px;
-            background-color: var(--bg-secundario);
-            padding: 30px;
-            border-radius: 6px;
-            border: 1px solid #333;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--color-blanco);
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            background-color: #2b2b2b;
-            border: 1px solid #444;
-            color: var(--color-blanco);
+            background-color: rgba(255,255,255,0.05);
+            padding: 15px;
             border-radius: 4px;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-oro);
+        .contacto-item .icon {
+            color: var(--color-amarillo);
+            font-size: 1.8rem;
         }
 
-        .btn-enviar {
-            background-color: var(--color-oro);
-            color: #000;
+        .contacto-item h4 {
+            color: var(--color-blanco);
+            margin-bottom: 3px;
+        }
+
+        .btn-wsap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25D366; 
+            color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 15px;
             font-weight: bold;
+            font-size: 1.1rem;
             border-radius: 4px;
             cursor: pointer;
             width: 100%;
             transition: background 0.3s;
+            text-decoration: none;
         }
 
-        .btn-enviar:hover {
-            background-color: var(--color-blanco);
+        .btn-wsap:hover {
+            background-color: #1ebe57;
+        }
+
+        /* --- MODAL --- */
+        #modalGaleria {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modalImg {
+            max-width: 95%;
+            max-height: 85%;
+            border: 2px solid var(--color-amarillo);
         }
 
         /* --- FOOTER --- */
         footer {
-            background-color: #0a0a0a;
+            background-color: #000;
             text-align: center;
             padding: 2rem;
-            border-top: 1px solid #222;
+            border-top: 2px solid #222;
             color: #777;
             font-size: 0.9rem;
         }
 
-        /* --- RESPONSIVE MOBILE --- */
+        /* --- RESPONSIVE MÓVIL --- */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
+            .menu-toggle {
+                display: block; 
             }
-            .hero-content h1 {
-                font-size: 2rem;
+
+            .nav-menu {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                border-bottom: 2px solid var(--color-rojo);
+                padding: 15px 0;
+                gap: 15px;
+                text-align: center;
+                box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            }
+
+            .nav-menu.active {
+                display: flex; 
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1.1rem; 
+            }
+
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .logo-principal {
+                max-width: 180px;
+            }
+
+            .hero-info h1 {
+                font-size: 1.6rem;
+            }
+
+            .container {
+                margin: 2rem auto;
+                padding: 0 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .galeria-panel {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <!-- Reemplaza 'logo.png' con la ruta de tu imagen cuando la tengas -->
-                <img src="logo.png" alt="Logo Wolf Spirit" class="logo-img" id="logo-site">
-                <div class="logo-text">WOLF <span>SPIRIT</span></div>
+                <img src="1000051057.jpg" alt="Logo Wolf Spirit Nav" class="logo-img">
             </div>
+            
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span class="material-icons">menu</span>
+            </button>
+
             <nav>
-                <ul class="nav-menu">
+                <ul class="nav-menu" id="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">El Dojo</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
                     <li><a href="#horarios">Horarios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#galeria">Nuestra Acción</a></li>
+                    <li><a href="#contacto">Inscripciones</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- VISTA PRINCIPAL / BANNER -->
     <section class="hero" id="inicio">
-        <!-- Reemplaza 'banner.jpg' por tu imagen principal -->
-        <img src="banner.jpg" alt="Banner Wolf Spirit" class="banner-img" id="banner-hero">
-        <div class="hero-content">
-            <h1>Espíritu del Lobo</h1>
-            <p>Disciplina • Respeto • Defensa Personal en Quimbaya</p>
-            <a href="#contacto" class="btn-cta">Inscríbete Ahora</a>
+        <img src="1000051057.jpg" alt="Logo Wolf Spirit Principal" class="logo-principal">
+        <div class="hero-info">
+            <h1>Club de Karate Do Wolf Spirit</h1>
+            <p>Disciplina • Respeto • Defensa Personal • Quimbaya</p>
+            <a href="https://wa.me/573203887361?text=Hola,%20quisiera%20inscribirme%20en%20Karate-Do%20Wolf%20Spirit" class="btn-contacto" target="_blank">
+                <span class="material-icons">waving_hand</span> Inscríbete Ahora
+            </a>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- DESCRIPCIÓN DEL DOJO -->
         <section id="nosotros">
-            <h2>Sobre Nuestro Dojo</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Bienvenido al <strong>Dojo Wolf Spirit</strong>, un espacio dedicado a la formación integral a través de las artes marciales tradicionales y modernas en el corazón de Quimbaya, Quindío.</p>
-                    <p>Nuestro enfoque no solo se centra en el acondicionamiento físico y las técnicas efectivas de defensa personal, sino también en cultivar valores esenciales como la autodisciplina, la perseverancia y el respeto mutuo.</p>
-                    <p>Contamos con instructores capacitados para guiar los procesos de niños, jóvenes y adultos, adaptando los entrenamientos según los objetivos de cada estudiante.</p>
-                </div>
+            <h2>Sobre Nuestro Club</h2>
+            <div class="about-text">
+                <p>Bienvenido al <strong>Club de Karate Do Wolf Spirit</strong>, un espacio dedicado a la formación integral a través del Karate tradicional Shotokan y técnicas modernas de defensa personal.</p>
+                <p>Ubicados en el municipio de Quimbaya, Quindío, cultivamos valores como la autodisciplina, la perseverancia, el respeto mutuo y la autoconfianza. Nuestro lema corporativo, "Born Leader" (Nacido Líder), guía a cada estudiante a encontrar su fuerza interior.</p>
+                <p>Contamos con instructores capacitados para guiar los procesos tanto de niños como de jóvenes y adultos, adaptando el entrenamiento a todos los niveles.</p>
             </div>
         </section>
 
-        <!-- HORARIOS -->
         <section id="horarios">
             <h2>Horarios de Entrenamiento</h2>
-            <p>Elige la sede y el horario que mejor se adapte a tu rutina diaria:</p>
+            <p style="color: #aaa; margin-bottom: 1rem;">Desliza horizontalmente si estás en un celular para ver el cronograma completo por días y categorías:</p>
+            
             <div class="table-responsive">
-                <table>
+                <table class="horarios-tabla">
                     <thead>
                         <tr>
-                            <th>Sede</th>
-                            <th>Días</th>
-                            <th>Horario de Apertura</th>
+                            <th style="background-color: #222;">Horario</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <strong><td>Sede Principal (Carrera 6 #19-27)</td></strong>
-                            <td>Lunes a Viernes</td>
-                            <td>5:00 p.m. - 10:00 p.m.</td>
+                            <td class="col-hora">9:00 AM A<br>10:30 AM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-blanca">NIÑOS (A) DE 4<br>A 7 AÑOS</td>
+                            <td class="cell-blanca">NIÑOS (A) DE 4<br>A 7 AÑOS</td>
+                            <td class="cell-blanca">NIÑOS (A) DE 4<br>A 7 AÑOS</td>
+                            <td class="cell-vacia"></td>
                         </tr>
                         <tr>
-                            <strong><td>Sede Karate-Do Shotokan (Calle 14 #4-7)</td></strong>
-                            <td>Lunes a Viernes</td>
-                            <td>9:30 a.m. - 11:30 a.m. <br> 2:00 p.m. - 7:00 p.m.</td>
+                            <td class="col-hora">10:30 AM A<br>12:00 AM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-verde">NIÑOS (A) DE 8<br>EN ADELANTE<br>PRINCIPIANTES -<br>INTERMEDIOS -<br>AVANZADOS</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-vacia"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-hora">2:00 PM A<br>3:30 PM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-amarilla">NIÑOS (A) DE 4 A 8 AÑOS<br>PRINCIPIANTES -<br>INTERMEDIOS</td>
+                            <td class="cell-amarilla">NIÑOS (A) DE 4 A 8 AÑOS<br>PRINCIPIANTES -<br>INTERMEDIOS</td>
+                            <td class="cell-amarilla">NIÑOS (A) DE 4 A 8 AÑOS<br>PRINCIPIANTES -<br>INTERMEDIOS</td>
+                            <td class="cell-azul">TOPE<br>COMPETITIVO<br>TODOS LOS<br>GRUPOS</td>
+                        </tr>
+                        <tr>
+                            <td class="col-hora">3:30 PM A<br>5:00 PM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-naranja">NIÑOS (A) Y JÓVENES DE 8 A 12 AÑOS<br>PRINCIPIANTES - AVANZADOS</td>
+                            <td class="cell-naranja">NIÑOS (A) Y JÓVENES DE 8 A 12 AÑOS<br>PRINCIPIANTES - AVANZADOS</td>
+                            <td class="cell-naranja">NIÑOS (A) Y JÓVENES DE 8 A 12 AÑOS<br>PRINCIPIANTES - AVANZADOS</td>
+                            <td class="cell-vacia"></td>
+                        </tr>
+                        <tr>
+                            <td class="col-hora">5:30 PM A<br>7:00 PM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-verde">NIÑOS (A) Y JÓVENES<br>DE 8 EN ADELANTE<br>PRINCIPIANTES -<br>INTERMEDIOS -<br>AVANZADOS</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-verde">NIÑOS (A) Y JÓVENES<br>DE 8 EN ADELANTE<br>PRINCIPIANTES -<br>INTERMEDIOS -<br>AVANZADOS</td>
+                            <td class="cell-vacia"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <div class="info-nota">* Todos los entrenamientos se realizan en la Sede Única (Carrera 6 #19-27)</div>
         </section>
 
-        <!-- GALERÍA DE IMÁGENES -->
         <section id="galeria">
-            <h2>El Dojo en Acción</h2>
-            <div class="galeria-grid">
-                <!-- Bloques listos para tus imágenes -->
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Entrenamiento Niños" class="dojo-gal-img">
-                    <div class="galeria-caption">Clases Infantiles</div>
+            <h2>Nuestra Acción y Equipo</h2>
+            <p style="margin-bottom: 2rem; color: #aaa;">Conoce a nuestros integrantes en los banners oficiales del club. Haz clic en cualquiera para ampliarlo.</p>
+            <div class="galeria-panel">
+                <div class="galeria-banner" onclick="openModal('1000051061.jpg')">
+                    <img src="1000051061.jpg" alt="Equipo Wolf Spirit Banner Rojo">
                 </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Práctica de Kata" class="dojo-gal-img">
-                    <div class="galeria-caption">Técnica y Kata</div>
-                </div>
-                <div class="galeria-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Defensa Personal" class="dojo-gal-img">
-                    <div class="galeria-caption">Defensa Personal Adultos</div>
+                <div class="galeria-banner" onclick="openModal('1000051062.jpg')">
+                    <img src="1000051062.jpg" alt="Equipo Wolf Spirit Banner Negro">
                 </div>
             </div>
         </section>
 
-        <!-- CONTACTO E INSCRIPCIONES -->
         <section id="contacto">
             <h2>Contacto e Inscripciones</h2>
-            <div class="contacto-grid">
-                
-                <!-- Datos Directos -->
-                <div class="contacto-info">
-                    <div class="info-card">
-                        <span class="material-icons icon">location_on</span>
-                        <div>
-                            <h4>Ubicaciones</h4>
-                            <p>Carrera 6 #19-27 / Calle 14 #4-7</p>
-                            <p>Quimbaya, Quindío</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <span class="material-icons icon">phone</span>
-                        <div>
-                            <h4>Teléfonos de Contacto</h4>
-                            <p>+57 350 6433292</p>
-                            <p>+57 320 3887361</p>
-                        </div>
+            <p style="margin-bottom: 2rem; color: #aaa;">Resuelve tus dudas o asegura tu cupo directamente vía WhatsApp.</p>
+            <div class="contacto-panel">
+                <div class="contacto-item">
+                    <span class="material-icons icon">person</span>
+                    <div>
+                        <h4>Coordinación</h4>
+                        <p>Sensei @DAMIRBECERRA_KARATE</p>
                     </div>
                 </div>
-
-                <!-- Formulario Dinámico -->
-                <div class="contacto-form">
-                    <form id="formInscripcion">
-                        <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
-                            <input type="text" id="nombre" required placeholder="Tu nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="telefono">Celular / WhatsApp</label>
-                            <input type="tel" id="telefono" required placeholder="Ej: 300 123 4567">
-                        </div>
-                        <div class="form-group">
-                            <label for="mensaje">¿Tienes alguna duda o quieres agendar clase de cortesía?</label>
-                            <textarea id="mensaje" rows="4" placeholder="Escribe tu consulta aquí..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-enviar">Enviar Consulta</button>
-                    </form>
+                <div class="contacto-item">
+                    <span class="material-icons icon">location_on</span>
+                    <div>
+                        <h4>Ubicación Única</h4>
+                        <p>Carrera 6 #19-27, Quimbaya, Quindío</p>
+                    </div>
                 </div>
-
+                <a href="https://wa.me/573203887361?text=Hola,%20quisiera%20inscribirme%20en%20Karate-Do%20Wolf%20Spirit" class="btn-wsap" target="_blank">
+                    <span class="material-icons">chat</span> Escríbenos por WhatsApp: +57 320 388 7361
+                </a>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2026 Dojo Wolf Spirit Quimbaya. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Club de Karate Do Wolf Spirit Quimbaya. Todos los derechos reservados. "Born Leader"</p>
     </footer>
 
-    <!-- LÓGICA EN JAVASCRIPT -->
+    <div id="modalGaleria" onclick="closeModal()">
+        <img id="modalImg" src="">
+    </div>
+
     <script>
-        document.getElementById('formInscripcion').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Captura de datos
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Simulación de envío o redirección rápida por WhatsApp
-            alert(`¡Gracias ${nombre}! Tu solicitud ha sido registrada. Nos comunicaremos contigo al número ${telefono}.`);
-            
-            // Opcional: Limpiar formulario
-            this.reset();
+        // Menú Desplegable Móvil
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Ver banner grande al hacer click
+        function openModal(imgSrc) {
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalGaleria').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalGaleria').style.display = 'none';
+        }
     </script>
 </body>
 </html>

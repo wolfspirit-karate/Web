@@ -180,22 +180,23 @@
             font-size: 1.1rem;
         }
 
-        /* --- IMAGEN DE LA SEDE --- */
-        .sede-banner {
+        /* --- SECCIÓN NUESTRA SEDE INDEPENDIENTE --- */
+        .sede-container {
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #333;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             cursor: pointer;
             transition: transform 0.3s;
-            margin-bottom: 2rem;
+            background-color: var(--bg-secundario);
+            width: 100%;
         }
 
-        .sede-banner:hover {
+        .sede-container:hover {
             transform: scale(1.01);
         }
 
-        .sede-banner img {
+        .sede-container img {
             width: 100%;
             height: auto;
             display: block;
@@ -464,6 +465,7 @@
                 <ul class="nav-menu" id="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#sede">La Sede</a></li>
                     <li><a href="#horarios">Horarios</a></li>
                     <li><a href="#galeria">Nuestra Acción</a></li>
                     <li><a href="#contacto">Inscripciones</a></li>
@@ -494,14 +496,18 @@
             </div>
         </section>
 
+        <section id="sede">
+            <h2>Nuestra Sede</h2>
+            <p style="color: #aaa; margin-bottom: 1.5rem;">Instalaciones equipadas con tatami profesional y el mejor ambiente de entrenamiento marcial en la Carrera 6 de Quimbaya. (Haz clic para ampliar)</p>
+            <div class="sede-container" onclick="openModal('1000051562.jpg')">
+                <img src="1000051562.jpg" alt="Instalaciones Sede Wolf Spirit">
+            </div>
+        </section>
+
         <section id="horarios">
             <h2>Horarios de Entrenamiento</h2>
             <p style="color: #aaa; margin-bottom: 1.5rem;">Desliza horizontalmente si estás en un celular para ver el cronograma completo por días y categorías:</p>
             
-            <div class="sede-banner" onclick="openModal('1000051562.jpg')">
-                <img src="1000051562.jpg" alt="Instalaciones Sede Wolf Spirit">
-            </div>
-
             <div class="table-responsive">
                 <table class="horarios-tabla">
                     <thead>

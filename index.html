@@ -20,7 +20,7 @@
             --fuente-titulo: 'Oswald', sans-serif;
             --fuente-cuerpo: 'Montserrat', sans-serif;
 
-            /* Colores del folleto de horarios */
+            /* Colores específicos del folleto de horarios */
             --horario-blanco: #ffffff;
             --horario-texto-oscuro: #000000;
             --horario-verde: #00c853;
@@ -212,6 +212,10 @@
             text-transform: uppercase;
         }
 
+        .get th {
+            background-color: var(--color-rojo);
+        }
+
         .horarios-tabla td.col-hora {
             font-family: var(--fuente-titulo);
             background-color: #222;
@@ -262,14 +266,14 @@
             text-align: right;
         }
 
-        /* --- GALERÍA / BANNERS --- */
+        /* --- GALERÍA --- */
         .galeria-panel {
             background-color: var(--bg-secundario);
             padding: 20px;
             border-radius: 8px;
             border: 1px solid #333;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
 
@@ -430,10 +434,6 @@
             h2 {
                 font-size: 1.6rem;
             }
-
-            .galeria-panel {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -548,13 +548,16 @@
 
         <section id="galeria">
             <h2>Nuestra Acción y Equipo</h2>
-            <p style="margin-bottom: 2rem; color: #aaa;">Conoce a nuestros integrantes en los banners oficiales del club. Haz clic en cualquiera para ampliarlo.</p>
+            <p style="margin-bottom: 2rem; color: #aaa;">Banners oficiales del club y folleto informativo. Haz clic en cualquiera para verlo en tamaño completo.</p>
             <div class="galeria-panel">
                 <div class="galeria-banner" onclick="openModal('1000051061.jpg')">
                     <img src="1000051061.jpg" alt="Equipo Wolf Spirit Banner Rojo">
                 </div>
                 <div class="galeria-banner" onclick="openModal('1000051062.jpg')">
                     <img src="1000051062.jpg" alt="Equipo Wolf Spirit Banner Negro">
+                </div>
+                <div class="galeria-banner" onclick="openModal('1000031904.jpg')">
+                    <img src="1000031904.jpg" alt="Cronograma Completo de Horarios">
                 </div>
             </div>
         </section>
@@ -593,7 +596,7 @@
     </div>
 
     <script>
-        // Menú Desplegable Móvil
+        // Lógica para el Menú Desplegable Móvil (Evita romper pantalla en celular)
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
 
@@ -607,7 +610,7 @@
             });
         });
 
-        // Ver banner grande al hacer click
+        // Lógica para Ampliar Banners e Imágenes (Modal)
         function openModal(imgSrc) {
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('modalGaleria').style.display = 'flex';

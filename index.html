@@ -20,7 +20,7 @@
             --fuente-titulo: 'Oswald', sans-serif;
             --fuente-cuerpo: 'Montserrat', sans-serif;
 
-            /* Colores específicos del folleto de horarios */
+            /* Colores del folleto de horarios */
             --horario-blanco: #ffffff;
             --horario-texto-oscuro: #000000;
             --horario-verde: #00c853;
@@ -180,6 +180,27 @@
             font-size: 1.1rem;
         }
 
+        /* --- SECCIÓN NUESTRA SEDE --- */
+        .sede-container {
+            background-color: var(--bg-secundario);
+            border-radius: 8px;
+            border: 1px solid #333;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .sede-container:hover {
+            transform: scale(1.01);
+        }
+
+        .sede-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* --- TABLA DE HORARIOS ADAPTATIVA --- */
         .table-responsive {
             width: 100%;
@@ -210,10 +231,6 @@
             color: var(--color-blanco);
             background-color: var(--color-rojo-claro);
             text-transform: uppercase;
-        }
-
-        .get th {
-            background-color: var(--color-rojo);
         }
 
         .horarios-tabla td.col-hora {
@@ -266,7 +283,7 @@
             text-align: right;
         }
 
-        /* --- GALERÍA --- */
+        /* --- GALERÍA / BANNERS --- */
         .galeria-panel {
             background-color: var(--bg-secundario);
             padding: 20px;
@@ -434,6 +451,10 @@
             h2 {
                 font-size: 1.6rem;
             }
+
+            .galeria-panel {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -453,6 +474,7 @@
                 <ul class="nav-menu" id="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#sede">Nuestra Sede</a></li>
                     <li><a href="#horarios">Horarios</a></li>
                     <li><a href="#galeria">Nuestra Acción</a></li>
                     <li><a href="#contacto">Inscripciones</a></li>
@@ -479,10 +501,39 @@
             <div class="about-text">
                 <p>Bienvenido al <strong>Club de Karate Do Wolf Spirit</strong>, un espacio dedicado a la formación integral a través del Karate tradicional Shotokan y técnicas modernas de defensa personal.</p>
                 <p>Ubicados en el municipio de Quimbaya, Quindío, cultivamos valores como la autodisciplina, la perseverancia, el respeto mutuo y la autoconfianza. Nuestro lema corporativo, "Born Leader" (Nacido Líder), guía a cada estudiante a encontrar su fuerza interior.</p>
-                <p>Contamos con instructores capacitados para guiar los procesos tanto de niños como de jóvenes y adultos, adaptando el entrenamiento a todos los niveles.</p>
+                <p>Contamos con instructores capacitados para guian los procesos tanto de niños como de jóvenes y adultos, adaptando el entrenamiento a todos los niveles.</p>
             </div>
         </section>
 
+        <section id="sede">
+            <h2>Nuestra Sede</h2>
+            <p style="color: #aaa; margin-bottom: 1.5rem;">Instalaciones equipadas con tatami profesional y el mejor ambiente de entrenamiento marcial en Quimbaya. (Haz clic para ampliar)</p>
+            <div class="sede-container" onclick="openModal('1000051562.jpg')">
+                <img src="1000051562.jpg" alt="Instalaciones del Dojo Wolf Spirit" class="sede-img">
+            </div>
+        </section>
+
+        <section id="horarios">
+            <h2>Horarios de Entrenamiento</h2>
+            <p style="color: #aaa; margin-bottom: 1rem;">Desliza horizontalmente si estás en un celular para ver el cronograma completo por días y categorías:</p>
+            
+            <div class="table-responsive">
+                <table class="horarios-tabla">
+                    <thead>
+                        <tr>
+                            <th style="background-color: #222;">Horario</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miércoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-hora">9:00 AM A<br>10:30 AM</td>
+                            <td class="cell-vacia"></td>
+                            <td class="cell-blanca">NIÑOS (A) DE 4<br>A 7 A... CORREGIDO -->
         <section id="horarios">
             <h2>Horarios de Entrenamiento</h2>
             <p style="color: #aaa; margin-bottom: 1rem;">Desliza horizontalmente si estás en un celular para ver el cronograma completo por días y categorías:</p>
@@ -548,7 +599,7 @@
 
         <section id="galeria">
             <h2>Nuestra Acción y Equipo</h2>
-            <p style="margin-bottom: 2rem; color: #aaa;">Banners oficiales del club y folleto informativo. Haz clic en cualquiera para verlo en tamaño completo.</p>
+            <p style="margin-bottom: 2rem; color: #aaa;">Conoce a nuestros integrantes y el dojo. Haz clic en cualquiera para ampliarlo.</p>
             <div class="galeria-panel">
                 <div class="galeria-banner" onclick="openModal('1000051061.jpg')">
                     <img src="1000051061.jpg" alt="Equipo Wolf Spirit Banner Rojo">
@@ -556,8 +607,8 @@
                 <div class="galeria-banner" onclick="openModal('1000051062.jpg')">
                     <img src="1000051062.jpg" alt="Equipo Wolf Spirit Banner Negro">
                 </div>
-                <div class="galeria-banner" onclick="openModal('1000031904.jpg')">
-                    <img src="1000031904.jpg" alt="Cronograma Completo de Horarios">
+                <div class="galeria-banner" onclick="openModal('1000051562.jpg')">
+                    <img src="1000051562.jpg" alt="Instalaciones de la Sede">
                 </div>
             </div>
         </section>
@@ -596,7 +647,7 @@
     </div>
 
     <script>
-        // Lógica para el Menú Desplegable Móvil (Evita romper pantalla en celular)
+        // Menú Desplegable Móvil
         const menuBtn = document.getElementById('mobile-menu-btn');
         const navLinks = document.getElementById('nav-links');
 
@@ -610,7 +661,7 @@
             });
         });
 
-        // Lógica para Ampliar Banners e Imágenes (Modal)
+        // Ver banner grande al hacer click
         function openModal(imgSrc) {
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('modalGaleria').style.display = 'flex';

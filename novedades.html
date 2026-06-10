@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - Club de Karate Do Wolf Spirit</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR CORPORATIVO --- */
+        :root {
+            --bg-principal: #0d0d0d; 
+            --bg-secundario: #1a1a1a; 
+            --color-rojo: #8b0000; 
+            --color-rojo-claro: #cc0000; 
+            --color-amarillo: #d4af37; 
+            --color-texto: #e0e0e0;
+            --color-blanco: #ffffff;
+            --fuente-titulo: 'Oswald', sans-serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--bg-principal);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--fuente-titulo);
+            color: var(--color-blanco);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        header {
+            background-color: #000000;
+            border-bottom: 3px solid var(--color-rojo);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem; 
+            position: relative;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px; 
+            width: auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-blanco);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-menu a {
+            color: var(--color-texto);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-amarillo);
+        }
+
+        /* --- CABECERA DE NOVEDADES --- */
+        .novedades-header {
+            background-color: var(--bg-secundario);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-bottom: 2px solid var(--color-rojo);
+        }
+
+        .novedades-header h1 {
+            font-size: 2.5rem;
+            color: var(--color-blanco);
+            margin-bottom: 0.5rem;
+        }
+
+        .novedades-header p {
+            color: var(--color-amarillo);
+            font-size: 1.1rem;
+        }
+
+        /* --- CONTENEDOR DE TARJETAS --- */
+        .container {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Formato de las Noticias */
+        .noticia-card {
+            background-color: var(--bg-secundario);
+            border-left: 4px solid var(--color-amarillo);
+            border-radius: 0 8px 8px 0;
+            padding: 25px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+
+        .noticia-card:hover {
+            transform: translateX(5px);
+        }
+
+        /* Variante para circulares urgentes o importantes (Borde Rojo) */
+        .noticia-card.urgente {
+            border-left-color: var(--color-rojo-claro);
+        }
+
+        .noticia-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--color-amarillo);
+            margin-bottom: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .noticia-card.urgente .noticia-meta {
+            color: var(--color-rojo-claro);
+        }
+
+        .noticia-card h2 {
+            font-size: 1.6rem;
+            color: var(--color-blanco);
+            margin-bottom: 1rem;
+            border-bottom: none;
+        }
+
+        .noticia-contenido p {
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 1.05rem;
+        }
+
+        .noticia-contenido ul {
+            margin-left: 20px;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid #222;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 6rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block; 
+            }
+
+            .nav-menu {
+                display: none; 
+                flex-direction: column;
+                position: absolute;
+                top: 100%; 
+                left: 0;
+                width: 100%;
+                background-color: #000000;
+                border-bottom: 2px solid var(--color-rojo);
+                padding: 15px 0;
+                gap: 15px;
+                text-align: center;
+                box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+            }
+
+            .nav-menu.active {
+                display: flex; 
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1.1rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="1000051057.jpg" alt="Logo Wolf Spirit Nav" class="logo-img">
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu-btn">
+                <span class="material-icons">menu</span>
+            </button>
+
+            <nav>
+                <ul class="nav-menu" id="nav-links">
+                    <li><a href="index.html">Volver al Inicio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="novedades-header">
+        <h1>Bitácora de Novedades</h1>
+        <p>Anuncios oficiales, eventos y circulares del Dojo</p>
+    </div>
+
+    <div class="container">
+
+        <div class="noticia-card urgente">
+            <div class="noticia-meta">
+                <span><span class="material-icons" style="font-size: 14px; vertical-align: middle;">calendar_today</span> 10 de Junio, 2026</span>
+                <span>• Circular Oficial</span>
+            </div>
+            <h2>Próximo Seminario de Defensa Personal</h2>
+            <div class="noticia-contenido">
+                <p>Atención a toda la comunidad de Wolf Spirit. Este mes llevaremos a cabo nuestro seminario intensivo enfocado en aplicaciones reales de Karate Shotokan para la protección civil.</p>
+                <p><strong>Detalles clave:</strong></p>
+                <ul>
+                    <li>Dirigido a: Alumnos de categorías jóvenes y adultos.</li>
+                    <li>Requisito: Asistir con el Karategi completo y puntualidad extrema.</li>
+                </ul>
+                <p>Para agendar tu cupo o solicitar mayor información de costos, comunícate directamente con el Sensei a través de nuestra línea de soporte de WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="noticia-card">
+            <div class="noticia-meta">
+                <span><span class="material-icons" style="font-size: 14px; vertical-align: middle;">calendar_today</span> 01 de Junio, 2026</span>
+                <span>• Evento Interno</span>
+            </div>
+            <h2>Mantenimiento de Sede Exitoso</h2>
+            <div class="noticia-contenido">
+                <p>Queremos agradecer a todo el equipo de apoyo por la adecuación y limpieza profunda de nuestro tatami en la sede única de la Carrera 6. Mantener las instalaciones impecables es parte esencial de nuestro Do (camino).</p>
+                <p>Los entrenamientos continúan en su total normalidad bajo el esquema de horarios establecido.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Club de Karate Do Wolf Spirit Quimbaya. Todos los derechos reservados. "Born Leader"</p>
+    </footer>
+
+    <script>
+        // Menú Desplegable Móvil
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
